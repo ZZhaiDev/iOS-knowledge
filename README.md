@@ -41,4 +41,14 @@ iOS Domain knowledge
 
  Tools: [Main Thread Checker](https://developer.apple.com/documentation/code_diagnostics/main_thread_checker), System Trace tool, Time Profiler
  
+ ### 3. Storyboard vs Pure Code, vs Nib/Xib
+ * [iOS User Interfaces: Storyboards vs. NIBs vs. Custom Code](https://www.toptal.com/ios/ios-user-interfaces-storyboards-vs-nibs-vs-custom-code)
+  * [Storyboard vs Programmatically in Swift](https://medium.com/@chan.henryk/storyboard-vs-programmatically-in-swift-9a65ff6aaeae)
+  ```swift
+      The main reason why I refused to use Storyboard and Xib is merge conflict.
+      Both code and xib are reuseble.
+      The view has a complicated or dynamic layout, best-implemented with code
+  ```
+  
+ 
 
