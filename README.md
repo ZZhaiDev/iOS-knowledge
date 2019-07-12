@@ -33,4 +33,12 @@ iOS Domain knowledge
         return result
     }
   ```
+  
+ ### 2. How to avoid blocking UI, what tools we can use?
+ * [Avoid blocking UI when doing a lot of operations that are required to be on main thread
+](https://stackoverflow.com/questions/11232665/avoid-blocking-ui-when-doing-a-lot-of-operations-that-are-required-to-be-on-main)
+* [iOS How to determine what is blocking the UI](https://stackoverflow.com/questions/15928035/ios-how-to-determine-what-is-blocking-the-ui)
+
+ Tools: [Main Thread Checker](https://developer.apple.com/documentation/code_diagnostics/main_thread_checker), System Trace tool, Time Profiler
+ 
 
