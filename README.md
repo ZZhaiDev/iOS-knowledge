@@ -49,6 +49,12 @@ iOS Domain knowledge
       Both code and xib are reuseble.
       The view has a complicated or dynamic layout, best-implemented with code
   ```
+  ### 4. Weak, Strong, Automatic Reference Counting, Capturing values, Closures
+   * [Capturing Values In Swift Closures](https://marcosantadev.com/capturing-values-swift-closures/)
+   * [the swift programming language swift 5.1](https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html)
+   * `A weak reference` is a reference that does not keep a strong hold on the instance it refers to, and so does not stop ARC from disposing of the referenced instance. This behavior prevents the reference from becoming part of a strong reference cycle.
+   * whenever you assign a class instance to a property, constant, or variable, that property, constant, or variable makes a `strong reference` to the instance. The reference is called a `“strong” reference` because it keeps a firm hold on that instance, and does not allow it to be deallocated for as long as that strong reference remains.
+   * This can happen if two class instances hold a strong reference to each other, such that each instance keeps the other alive. This is known as a `strong reference cycle.`
   
  
 
