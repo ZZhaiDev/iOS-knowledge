@@ -134,6 +134,7 @@ An optional is used to let a variable of any type represent the lack of value. A
 `Auto layout` dynamically calculates the size and position of all the views in your view hierarchy based on constraints placed on those views.
 
 ### 16. What is runloop
+* A run loop is an abstraction that (among other things) provides a mechanism to handle system input sources (sockets, ports, files, keyboard, mouse, timers, etc).
 
 
   
