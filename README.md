@@ -135,7 +135,7 @@ An optional is used to let a variable of any type represent the lack of value. A
 
 ### 16. What is runloop
 * A run loop is an abstraction that (among other things) provides a mechanism to handle system input sources (sockets, ports, files, keyboard, mouse, timers, etc).
-
+* Run loops are part of the fundamental infrastructure associated with threads. A run loop is an event processing loop that you use to schedule work and coordinate the receipt of incoming events. The purpose of a run loop is to keep your thread busy when there is work to do and put your thread to sleep when there is none.
 
   
   
