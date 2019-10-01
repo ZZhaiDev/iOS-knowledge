@@ -133,12 +133,50 @@ An optional is used to let a variable of any type represent the lack of value. A
 ### 16. What is auto-layout
 `Auto layout` dynamically calculates the size and position of all the views in your view hierarchy based on constraints placed on those views.
 
-### 16. What is runloop
+### 17. What is runloop
 * A run loop is an abstraction that (among other things) provides a mechanism to handle system input sources (sockets, ports, files, keyboard, mouse, timers, etc).
 * Run loops are part of the fundamental infrastructure associated with threads. A run loop is an event processing loop that you use to schedule work and coordinate the receipt of incoming events. The purpose of a run loop is to keep your thread busy when there is work to do and put your thread to sleep when there is none.
 
 ### 18. cache vs database
 * Cache data can be used for any data that needs to persist longer than temporary data, but not as long as a support file. Generally speaking, the application does not require cache data to operate properly, but it can use cache data to improve performance. Examples of cache data include (but are not limited to) database cache files and transient, downloadable content. Note that the system may delete the Caches/ directory to free up disk space, so your app must be able to re-create or download these files as needed.
+
+### 19. Userdefault save data
+* Userdefault not encrypted, can be slow when plist is large because have to retrive and save the whole entire file when make change.
+``` swift
+class dataToSave: NSObject, NSCoding {
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(id, forKey: "id")
+        aCoder.encode(data, forKey: "data")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.id = aDecoder.decodeObject(forKey: "id") as? Int
+        self.data = aDecoder.decodeObject(forKey: "data") as? [URL]
+    }
+    
+    var id: Int?
+    var data: [URL]?
+    
+    init(id: Int, data: [URL]) {
+        self.id = id
+        self.data = data
+    }
+}
+
+if let decoded = UserDefaults.standard.object(forKey: dataBaseKey) as? Data {
+            var decodedTeams = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [dataToSave]
+            let obj = dataToSave(id: decodedTeams.last!.id! + 1, data: val)
+            decodedTeams.append(obj)
+            let encodeData = NSKeyedArchiver.archivedData(withRootObject: decodedTeams)
+            UserDefaults.standard.set(encodeData, forKey: dataBaseKey)
+        } else {
+            var arr = [dataToSave]()
+            let obj = dataToSave(id: 1, data: val)
+            arr.append(obj)
+            let encodeData = NSKeyedArchiver.archivedData(withRootObject: arr)
+            UserDefaults.standard.set(encodeData, forKey: dataBaseKey)
+        }
+```
 
   
   
