@@ -103,6 +103,9 @@ This mostly happens in classes and closures. Closures live in memory, so when yo
 * `Model`: Models are responsible for storing data and making it available to other objects.
 * `View`: Views are the visual elements of an application. What you see on screen.
 * `Controllers`: Controllers perform the logic necessary connect your views and models. They process events.
+* `Model`: class, struct, properties, relationships
+* `View`: Drawing, layout, animation, event detection.
+* `Controllers`: One controller per screen, network requests, event handling(taps, swipes), persistence, navigation.
 
 You may use different kinds of design patterns when you are developing your apps, but here are the most common ones.
 * `Singleton`: The Singleton design pattern ensures that only one instance exists for a given class
