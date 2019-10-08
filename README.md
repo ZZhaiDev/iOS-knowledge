@@ -181,7 +181,23 @@ if let decoded = UserDefaults.standard.object(forKey: dataBaseKey) as? Data {
         }
 ```
 
-  
+### 20. Stored properties and extensions: a pure Swift approach
+* [https://medium.com/@valv0/computed-properties-and-extensions-a-pure-swift-approach-64733768112c](https://medium.com/@valv0/computed-properties-and-extensions-a-pure-swift-approach-64733768112c)
+```swift
+  extension UIViewController {
+    struct Holder {
+        static var _myComputedProperty:Bool = false
+    }
+    var myComputedProperty:Bool {
+        get {
+            return Holder._myComputedProperty
+        }
+        set(newValue) {
+            Holder._myComputedProperty = newValue
+        }
+    }
+}
+```
   
   
   
