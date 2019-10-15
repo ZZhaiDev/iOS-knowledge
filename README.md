@@ -199,6 +199,21 @@ if let decoded = UserDefaults.standard.object(forKey: dataBaseKey) as? Data {
 }
 ```
   
+### 21. Cache data
+*  iOS will automatically remove objects from the cache if the device is running low on memory.
+```swift
+    let cache = NSCache<NSString, ExpensiveObjectClass>()
+    let myObject: ExpensiveObjectClass
+
+    if let cachedVersion = cache.object(forKey: "CachedObject") {
+        // use the cached version
+        myObject = cachedVersion
+    } else {
+        // create it from scratch then store in the cache
+        myObject = ExpensiveObjectClass()
+        cache.setObject(myObject, forKey: "CachedObject")
+    }
+```
   
   
  
