@@ -7,7 +7,7 @@ iOS Domain knowledge
    * [Dispatch Barriers in Swift 3](https://medium.com/@oyalhi/dispatch-barriers-in-swift-3-6c4a295215d6)
    * [Creating Thread-Safe Arrays in Swift](https://basememara.com/creating-thread-safe-arrays-in-swift/)
    * [Create thread safe array in Swift](https://stackoverflow.com/questions/28191079/create-thread-safe-array-in-swift)
-   * [Swift 线程安全数组](https://bignerdcoding.com/archives/58.html)
+   * [Swift 线程安全数组](https://segmentfault.com/a/1190000012068832)
    
    What if there was a way that you can ensure no writing occurs while reading and no reading occurs while writing using
    concurrency? Well, there is a way to this using `Concurrent Queue with Barrier`. 
