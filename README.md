@@ -12,6 +12,12 @@ iOS Domain knowledge
    What if there was a way that you can ensure no writing occurs while reading and no reading occurs while writing using
    concurrency? Well, there is a way to this using `Concurrent Queue with Barrier`. 
    If we take the concurrent code above, and insert a barrier to the write operation,  we ensure that the `writing will occur      after all the reading in the queue is performed and that no reading occurs while writing`.
+   * why not using serial queue?
+   
+   Performance issue. The reads are not optimized because multiple read requests have to wait for each other in a queue. However, reads should be able to happen concurrently, as long as there isn’t a write happening at the same time.
+   * Why writing asyc, reading syc?
+   
+   Notice the async method has the barrier flag set for writes. This means no other blocks may be scheduled from the queue while the async/barrier process runs. We continue to use the sync method for reads, but all readers will run in parallel this time because of the concurrent queue attribute
    ```swift
      private let concurrentQueue = DispatchQueue(label: "concurrentQueue", attributes: .concurrent)
      private var dictionary: [String: Any] = [:]
