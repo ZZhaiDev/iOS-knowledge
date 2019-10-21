@@ -140,6 +140,10 @@ An optional is used to let a variable of any type represent the lack of value. A
 ### 17. What is runloop
 * A run loop is an abstraction that (among other things) provides a mechanism to handle system input sources (sockets, ports, files, keyboard, mouse, timers, etc).
 * Run loops are part of the fundamental infrastructure associated with threads. A run loop is an event processing loop that you use to schedule work and coordinate the receipt of incoming events. The purpose of a run loop is to keep your thread busy when there is work to do and put your thread to sleep when there is none.
+* RunLoop的基本作用： 1、保持程序的持续运行 2、处理App中的各种事件（比如触摸事件、定时器事件等） 3、节省CPU资源，提高程序性能：该做事时做事，该休息时休息
+* 它内部就是do-while循环，在这个循环内部不断地处理各种任务。（It is a do-while loop inside, constantly processing various tasks inside this loop.）
+* 主线程的RunLoop默认已经启动，子线程的RunLoop得手动启动（调用run方法）（The main thread's RunLoop has been started by default, and the child thread's RunLoop has to be started manually.）
+* 每条线程都有唯一的一个与之对应的RunLoop对象（Each thread has a unique RunLoop object corresponding to it.）
 
 ### 18. cache vs database
 * Cache data can be used for any data that needs to persist longer than temporary data, but not as long as a support file. Generally speaking, the application does not require cache data to operate properly, but it can use cache data to improve performance. Examples of cache data include (but are not limited to) database cache files and transient, downloadable content. Note that the system may delete the Caches/ directory to free up disk space, so your app must be able to re-create or download these files as needed.
