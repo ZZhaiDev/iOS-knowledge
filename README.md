@@ -265,6 +265,7 @@ if let decoded = UserDefaults.standard.object(forKey: dataBaseKey) as? Data {
     }
 ```
   
-  
+  ### Semaphore
+  * [A Quick Look at Semaphores in Swift ](https://medium.com/swiftly-swift/a-quick-look-at-semaphores-6b7b85233ddb)
  
 
