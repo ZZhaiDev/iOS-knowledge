@@ -265,7 +265,11 @@ if let decoded = UserDefaults.standard.object(forKey: dataBaseKey) as? Data {
     }
 ```
   
-  ### Semaphore
+  ### 23 Semaphore
   * [A Quick Look at Semaphores in Swift ](https://medium.com/swiftly-swift/a-quick-look-at-semaphores-6b7b85233ddb)
+  
+  ### 24 如何确保api call是来自app, 确保合法性
+  * DeviceCheck API还可以让您验证您收到的token是否来自已下载应用程序的真实Apple设备。
+  * The DeviceCheck APIs let you verify that the token you receive comes from an authentic Apple device on which your app has been downloaded.
  
 
