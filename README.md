@@ -271,5 +271,8 @@ if let decoded = UserDefaults.standard.object(forKey: dataBaseKey) as? Data {
   ### 24 如何确保api call是来自app, 确保合法性
   * DeviceCheck API还可以让您验证您收到的token是否来自已下载应用程序的真实Apple设备。
   * The DeviceCheck APIs let you verify that the token you receive comes from an authentic Apple device on which your app has been downloaded.
+  
+  ### 25 图片缓存机制 -- SDWebImage
+  * 下载图片之前 先在memory cache里找，找到了返回结果。 没找到在从disk cache里找，找到返回结果，并把结果存到memory cache里。 如果没找到， 则make api call, 并把结果存到memory 和disk 。  memory cache里的数据随时会被删掉if the memory runs low.
  
 
