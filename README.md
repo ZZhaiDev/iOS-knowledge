@@ -275,4 +275,33 @@ if let decoded = UserDefaults.standard.object(forKey: dataBaseKey) as? Data {
   ### 25 图片缓存机制 -- SDWebImage
   * 下载图片之前 先在memory cache里找，找到了返回结果。 没找到在从disk cache里找，找到返回结果，并把结果存到memory cache里。 如果没找到， 则make api call, 并把结果存到memory 和disk 。  memory cache里的数据随时会被删掉if the memory runs low.
  
+ ### 26 GCD vs NSOperation
+  ```swift
+  GCD is a low-level C-based API.
+  NSOperation and NSOperationQueue are Objective-C classes.
+  NSOperationQueue is objective C wrapper over GCD. If you are using NSOperation, then you are implicitly using Grand Central   Dispatch.
+
+  GCD advantage over NSOperation:
+  i. implementation
+  For GCD implementation is very light-weight
+  NSOperationQueue is complex and heavy-weight
+
+  NSOperation advantages over GCD:
+
+  i. Control On Operation
+  you can Pause, Cancel, Resume an NSOperation
+
+  ii. Dependencies
+  you can set up a dependency between two NSOperations
+  operation will not started until all of its dependencies return true for finished.
+
+  iii. State of Operation
+  can monitor the state of an operation or operation queue. ready ,executing or finished
+
+  iv. Max Number of Operation
+  you can specify the maximum number of queued operations that can run simultaneously
+
+  When to Go for GCD or NSOperation
+  when you want more control over queue (all above mentioned) use NSOperation and for simple cases where you want less      overhead (you just want to do some work "into the background" with very little additional work) use GCD
+  ```
 
