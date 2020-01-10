@@ -302,6 +302,14 @@ if let decoded = UserDefaults.standard.object(forKey: dataBaseKey) as? Data {
   you can specify the maximum number of queued operations that can run simultaneously
 
   When to Go for GCD or NSOperation
-  when you want more control over queue (all above mentioned) use NSOperation and for simple cases where you want less      overhead (you just want to do some work "into the background" with very little additional work) use GCD
+  when you want more control over queue (all above mentioned) use NSOperation and for simple cases where you want 
+  less overhead (you just want to do some work "into the background" with very little additional work) use GCD
+  
+  Another reason to prefer NSOperation over GCD is the cancelation mechanism of NSOperation. For example, 
+  an App like 500px that shows dozens of photos, use NSOperation we can cancel requests of invisible image 
+  cells when we scroll table view or collection view, this can greatly improve App performance and reduce 
+  memory footprint. GCD can't easily support this.
+
+  Also with NSOperation, KVO can be possible.
   ```
 
