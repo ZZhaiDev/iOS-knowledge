@@ -312,4 +312,19 @@ if let decoded = UserDefaults.standard.object(forKey: dataBaseKey) as? Data {
 
   Also with NSOperation, KVO can be possible.
   ```
-
+### 27 what is Dependency Injection , Singletons vs Dependency Injection 
+* [Dependency Injection](https://medium.com/swiftly-swift/a-quick-look-at-semaphores-6b7b85233ddb)
+* [How to Migrate MVC to MVVM & Intro Unit Testing](https://www.youtube.com/watch?v=n06RE9A_8Ks&t=287s)
+* [Singletons vs. Dependency Injection with Swift](http://fusionblender.net/singletons-vs-dependency-injection-with-swift/)
+* [Dependency Injection in Swift ](https://cocoacasts.com/nuts-and-bolts-of-dependency-injection-in-swift)
+* Dependency injection: we have a class, inside of the class, we have a variable and an init func which recieving value to the variable. So we do not have to use Singleton.
+``` swift
+  class ViewCOntroller: UIViewController {
+      var someService: SomeService
+      init(someService: SomeService) {
+          self.someService = someService
+          super.init(nibName: nil, bundle: nil)
+      }
+  }
+```
+* One thing that you’ll find if you work on big projects is that you’re going to have lots of dependencies so you end up creating these bloated initializers that look horrific and suck to use. That’s where protocols come in to take all your dependencies, wrap them up in a nice neat package to be used later on. Testable and swifty!! I think a lot of people could benefit from demonstrating this protocol oriented approach to dependency injection. Keep it up!
