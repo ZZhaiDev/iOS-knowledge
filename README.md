@@ -328,3 +328,8 @@ if let decoded = UserDefaults.standard.object(forKey: dataBaseKey) as? Data {
   }
 ```
 * One thing that you’ll find if you work on big projects is that you’re going to have lots of dependencies so you end up creating these bloated initializers that look horrific and suck to use. That’s where protocols come in to take all your dependencies, wrap them up in a nice neat package to be used later on. Testable and swifty!! I think a lot of people could benefit from demonstrating this protocol oriented approach to dependency injection. Keep it up!
+
+### 28. Closure, Escaping
+* a closure is a block of code you can pass around and use elsewhere in your code.
+* An escaping closure is a closure that’s called after the function it was passed to returns. In other words, it outlives the function it was passed to. 比function活得长， 因为需要等待数据再返回，在the scope of function end.
+* A non-escaping closure is a closure that’s called within the function it was passed into, i.e. before it returns.
