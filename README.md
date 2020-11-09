@@ -1,7 +1,7 @@
 # iOS-knowledge
 iOS Domain knowledge
 
-### 29. Avoid massive App Delegate
+### 29. [Avoid massive App Delegate](https://www.vadimbulavin.com/refactoring-massive-app-delegate/)
 * The app delegate is the root object of your app. It ensures the app interacts properly with the system and with other apps. It’s very common for app delegate to have dozens of responsibilities which is makes it difficult to change, expand and test
 * We agreed that most of AppDelegates are unreasonably big, overcomplicated and have too much responsibilities. We called such classes Massive App Delegates.
 * By applying software design patterns, Massive App Delegate can be split into several classes each of which has single responsibility and can be tested in isolation.
