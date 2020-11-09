@@ -144,6 +144,9 @@ An optional is used to let a variable of any type represent the lack of value. A
 `Auto layout` dynamically calculates the size and position of all the views in your view hierarchy based on constraints placed on those views.
 
 ### 17. What is runloop
+* **必看**https://juejin.im/post/6844903808577830926
+* **什么地方会用到**，当界面中含有UITableView，而且每个UITableViewCell里边都有图片。这时候当我们滚动UITableView的时候，如果有一堆的图片需要显示，那么可能会出现卡顿的现象，可以利用runloop延迟imageView显示。
+* 有三个模式，kCFRunLoopDefaultMode，UITrackingRunLoopMode， UITrackingRunLoopMode， 如果在kCFRunLoopDefaultMode模式，滚动tableView/scrollView/textView的时候 timer则失效。
 * A run loop is an abstraction that (among other things) provides a mechanism to handle system input sources (sockets, ports, files, keyboard, mouse, timers, etc).
 * Run loops are part of the fundamental infrastructure associated with threads. A run loop is an event processing loop that you use to schedule work and coordinate the receipt of incoming events. The purpose of a run loop is to keep your thread busy when there is work to do and put your thread to sleep when there is none.
 * RunLoop的基本作用： 1、保持程序的持续运行 2、处理App中的各种事件（比如触摸事件、定时器事件等） 3、节省CPU资源，提高程序性能：该做事时做事，该休息时休息
