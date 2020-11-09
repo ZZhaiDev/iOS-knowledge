@@ -1,6 +1,32 @@
 # iOS-knowledge
 iOS Domain knowledge
 
+### 29. Avoid massive App Delegate
+* The app delegate is the root object of your app. It ensures the app interacts properly with the system and with other apps. It’s very common for app delegate to have dozens of responsibilities which is makes it difficult to change, expand and test
+* We agreed that most of AppDelegates are unreasonably big, overcomplicated and have too much responsibilities. We called such classes Massive App Delegates.
+* By applying software design patterns, Massive App Delegate can be split into several classes each of which has single responsibility and can be tested in isolation.
+* Such code is easy to change, as it will not result in a cascade of changes all over your app. It is very flexible and can extracted and reused in future
+* a list of responsibilities that are often put into app delegates:
+```swift
+Initialize numerous third-party libraries
+Initialize Core Data stack and manage migrations
+Configure app state for unit or UI tests
+Manage UserDefaults: setups first launch flags, save and load data
+Handle Home screen quick actions
+Manage notifications: request permissions, store token, handle custom actions, propagate notifications to the rest of the app
+Configure UIAppearance
+Manage app badge counter
+Manage background tasks
+Manage UI stack configuration: pick initial view controller, perform root view controller transitions
+Play audio
+Manage analytics
+Print debug logs
+Manage device orientation
+Conform to various delegate protocols, especially from third parties
+Prompt alerts
+```
+* ex: we have 5 frameworks, and need to do the initialize in appdelegate, that will be lots of code in appdelegate. What we can do is create 5 separate classes, and a protocol. all the classes will conform the protocol and implement the function. we just need an array of the protocol, the array will contain the objects of the classes. and in initialization funcion, we just need to traverse the array, get the object of the frameworks, and call their initialize function.
+
 ### 1. Thread safe array, Concurrent with .Barrier, Readers–writers problem.
    * [Thread safe code](https://gist.github.com/basememara/afaae5310a6a6b97bdcdbe4c2fdcd0c6)
    * [Concurrency in Swift: Reader Writer Lock](https://medium.com/@dmytro.anokhin/concurrency-in-swift-reader-writer-lock-4f255ae73422)
