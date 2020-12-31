@@ -1,5 +1,33 @@
 # iOS-knowledge
 iOS Domain knowledge
+### 30. KVO - swift 4
+```
+class Person: NSObject {
+    @objc dynamic var isHealth = true
+}
+
+class Family: NSObject {
+
+    var grandpa: Person
+    var observation: NSKeyValueObservation?
+
+    override init() {
+        grandpa = Person()
+        super.init()
+        print("爷爷身体状况: \(grandpa.isHealth ? "健康" : "不健康")")
+
+        observation = grandpa.observe(\.isHealth, options: .new) { (object, change) in
+            if let isHealth = change.newValue {
+                print("爷爷身体状况发生了变化：\(isHealth ? "健康" : "不健康")")
+            }
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+            self.grandpa.isHealth = false
+        }
+    }
+}
+```
 
 ### 29. [Avoid massive App Delegate](https://www.vadimbulavin.com/refactoring-massive-app-delegate/)
 * The app delegate is the root object of your app. It ensures the app interacts properly with the system and with other apps. It’s very common for app delegate to have dozens of responsibilities which is makes it difficult to change, expand and test
